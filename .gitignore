@@ -1,3 +1,19 @@
+####### Project Ignores #######
+!.gitkeep
+release/
+node_modules/
+gh-pages/
+doc/API/
+
+gulpfile.js/config/**
+!gulpfile.js/config/index.js
+!gulpfile.js/config/default.js
+
+test/config/**
+!test/config/index.js
+!test/config/default.js
+
+###############################
 
 # Created by https://www.gitignore.io/api/osx,node,vim
 
@@ -7,7 +23,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
