@@ -3,6 +3,7 @@
 var wrap = require('word-wrap');
 var Path = require('path');
 var packageJSON = require(Path.resolve(process.cwd(), 'package.json'));
+var get = require('get-value');
 
 // This can be any kind of SystemJS compatible module.
 // We use Commonjs here, but ES6 or AMD would do just
@@ -26,7 +27,7 @@ module.exports = {
 
         console.log(advice);
 
-        var promptType = packageJSON.config.commitizen.promptType;
+        var promptType = get(packageJSON, 'config.commitizen.promptType');
         if (promptType !== 'list') {
             promptType = 'rawlist';
         }
