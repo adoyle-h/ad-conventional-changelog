@@ -2,8 +2,13 @@
 
 var wrap = require('word-wrap');
 var Path = require('path');
-var packageJSON = require(Path.resolve(process.cwd(), 'package.json'));
 var get = require('get-value');
+var os = require('os');
+
+var packageJSON = require(Path.resolve(process.cwd(), 'package.json'));
+if (!packageJSON.config) {
+    packageJSON = require(Path.resolve(os.homedir(), 'package.json'));
+}
 
 // This can be any kind of SystemJS compatible module.
 // We use Commonjs here, but ES6 or AMD would do just
