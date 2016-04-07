@@ -2,13 +2,23 @@
 
 var wrap = require('word-wrap');
 var Path = require('path');
+var fs = require('fs');
 var get = require('get-value');
 var os = require('os');
 
-var packageJSON = require(Path.resolve(process.cwd(), 'package.json'));
-if (!packageJSON.config) {
-    packageJSON = require(Path.resolve(os.homedir(), 'package.json'));
+var path = Path.resolve(process.cwd(), 'package.json');
+var packageJSON;
+
+try {
+    fs.accessSync(path, fs.F_OK | fs.R_OK);
+    packageJSON = require(path);
+    if (!packageJSON.config) {
+        packageJSON = require(Path.resolve(os.homedir(), 'package.json'));
+    }
+} catch(err) {
+    // do nothing
 }
+
 
 // This can be any kind of SystemJS compatible module.
 // We use Commonjs here, but ES6 or AMD would do just
