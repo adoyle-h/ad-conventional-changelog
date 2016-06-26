@@ -1,6 +1,6 @@
 {
   "name": "ad-conventional-changelog",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Commitizen adapter following the conventional-changelog format.",
   "main": "index.js",
   "scripts": {
@@ -16,9 +16,25 @@
   "author": "ADoyle <adoyle.h@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "get-value": "^2.0.5",
     "word-wrap": "^1.0.3"
   },
   "devDependencies": {
-    "commitizen": "2.7.6"
+    "a-gulp-license": "^2.0.0",
+    "config-sp": "^0.1.1",
+    "eslint": "2.13.1",
+    "eslint-config-adoyle-style": "0.4.2",
+    "gulp": "^3.9.0",
+    "gulp-bump": "^1.0.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-conventional-changelog": "^1.1.0",
+    "gulp-eslint": "github:adoyle-h/gulp-eslint#a2.7.0",
+    "gulp-filter": "^3.0.1",
+    "minimist": "^1.2.0",
+    "run-sequence": "^1.2.1",
+    "walkdir": "0.0.11"
+  },
+  "peerDependencies": {
+    "commitizen": "~2.8.2"
   }
 }
