@@ -24,7 +24,6 @@ try {
 // We use Commonjs here, but ES6 or AMD would do just
 // fine.
 module.exports = {
-
     // When a user runs `git cz`, prompter will
     // be executed. We pass you cz, which currently
     // is just an instance of inquirer.js. Using
@@ -35,12 +34,11 @@ module.exports = {
     // to git.
     //
     // By default, we'll de-indent your commit
-    // template and will keep empty lines.
     prompter: function(cz, commit) {
         var maxLineWidth = 100;
         var advice = '【提示】第一行建议在 ' + maxLineWidth + ' 字以内。其他行若超过 ' + maxLineWidth + ' 字会自动换行。\n';
 
-        console.log(advice);
+        console.log(advice);  // eslint-disable-line no-console
 
         var promptType = get(packageJSON, 'config.commitizen.promptType');
         if (promptType !== 'list') {
@@ -112,7 +110,7 @@ module.exports = {
             type: 'input',
             name: 'footer',
             message: '相关任务或者 Issue（以 # 开头会自动 Close Issue）【回车跳过】:\n',
-        }], function(answers) {
+        }]).then(function(answers) {
             var wrapOptions = {
                 trim: true,
                 newline: '\n',
@@ -147,7 +145,10 @@ module.exports = {
                     msg += '\n\nReference: ' + footer;
                 }
             }
+
             commit(msg);
+        }).catch(function(err) {
+            console.error(err.stack || err);  // eslint-disable-line no-console
         });
     },
 };

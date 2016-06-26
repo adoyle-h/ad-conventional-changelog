@@ -19,7 +19,7 @@
     "get-value": "^2.0.5",
     "word-wrap": "^1.0.3"
   },
-  "devDependencies": {
-    "commitizen": "2.7.6"
+  "peerDependencies": {
+    "commitizen": "~2.8.2"
   }
 }
