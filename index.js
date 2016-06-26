@@ -10,7 +10,7 @@ var path = Path.resolve(process.cwd(), 'package.json');
 var packageJSON;
 
 try {
-    fs.accessSync(path, fs.F_OK | fs.R_OK);
+    fs.accessSync(path, fs.F_OK | fs.R_OK);   // eslint-disable-line no-bitwise
     packageJSON = require(path);
     if (!packageJSON.config) {
         packageJSON = require(Path.resolve(os.homedir(), 'package.json'));
